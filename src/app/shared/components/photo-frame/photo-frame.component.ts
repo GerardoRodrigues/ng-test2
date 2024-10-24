@@ -19,6 +19,7 @@ export class PhotoFrameComponent implements OnInit, OnDestroy{
     ngOnInit(): void {
         this.debounceSubject.asObservable().pipe(debounceTime(500)).pipe(takeUntil(this.unsubscribe)).subscribe(() => {
             this.liked.emit()
+            this.likes++;
         })
     }
 
